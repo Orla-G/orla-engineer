@@ -83,7 +83,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: '2025',
     end: 'Present',
     link: 'https://www.hamline.edu/',
-    id: 'work1',
+    id: 'hamline',
     description: 'Delivered six course sections across three disciplines — statistics, linear algebra, and calculus — within a single academic year, managing up to four concurrent sections per semester.',
     achievements: [
       'Incorporated hands-on data analysis labs using RStudio, giving students practical experience with a widely used statistical computing environment',
@@ -99,7 +99,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: '2024',
     end: '2025',
     link: 'https://www.uwrf.edu/',
-    id: 'work1',
+    id: 'uwrf',
     description: 'Designed and delivered hands-on engineering curriculum for undergraduate students, focusing on practical applications of physics and engineering principles. Successfully mentored student capstone projects from concept to prototype.',
     achievements: [
       'Enhanced student comprehension of instrumentation and data collection through LabVIEW programming coursework',
@@ -116,7 +116,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: '2019',
     end: '2024',
     link: 'https://mrd.umn.edu/',
-    id: 'work2',
+    id: 'umn',
     description: 'Led cutting-edge research in soft robotics and medical device control systems, developing innovative solutions for human-robot collaboration in medical applications. Secured research funding through grant proposals and published peer-reviewed findings.',
     achievements: [
       'Developed visual servoing control systems using Python and OpenCV for soft robotic applications, achieving precise end-effector positioning for medical procedures',
@@ -134,7 +134,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: '2015',
     end: '2018',
     link: 'https://www.hufriedygroup.com/en',
-    id: 'work3',
+    id: 'hufriedy',
     description: 'Engineered comprehensive testing protocols and design validation systems for medical devices, ensuring regulatory compliance and product reliability. Led design optimization initiatives and modernization efforts for legacy product lines.',
     achievements: [
       'Developed stress testing and life cycle validation protocols under extreme conditions for medical device reliability',
@@ -150,10 +150,10 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    title: 'Blog Post Template',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    link: '/blog/blog-post-template',
-    uid: 'blog-1',
+    title: 'Research and Publications',
+    description: 'Research Interests, on-going works, peer-reviewed publications, dissertations, and presentations.',
+    link: '/blog/publications',
+    uid: 'blog-publications',
   },
 ]
 

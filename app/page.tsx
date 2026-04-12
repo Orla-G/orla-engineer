@@ -437,7 +437,7 @@ export default function Personal() {
       </div>
       <div className="flex-1">
         <div className="mt-4 text-zinc-600 dark:text-zinc-400">
-          With a Ph.D. in Mechanical Engineering and a background that bridges robotics, control systems, mechatronics, and medical devices, I've led R&D projects from early-stage concepts to testable, real-world prototypes. My journey has spanned industry and academia: I've developed soft and hard robotic systems for medical applications, taught university-level courses in dynamics and machine design, and collaborated on interdisciplinary teams across engineering, healthcare, and data science.
+          With a Ph.D. in Mechanical Engineering and a background that bridges robotics, control systems, mechatronics, and medical devices, I've led R&D projects from early-stage concepts to testable, real-world prototypes. My journey has spanned industry and academia: I've developed soft and hard robotic systems for medical applications, taught university-level courses in statistics, dynamics and machine design, and collaborated on interdisciplinary teams across engineering, healthcare, and data science.
         </div>
       </div>
 
@@ -449,7 +449,7 @@ export default function Personal() {
 
       <WorkExperienceSection />
 
-      {/*<BlogPostsSection />*/}
+      <BlogPostsSection />
       
       <motion.section
         variants={{
