@@ -77,11 +77,27 @@ export const PROJECTS: Project[] = [
 ]
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
-{
+  {
+    company: 'Hamline University',
+    title: 'Lecturer – Applied Math',
+    start: '2025',
+    end: 'Present',
+    link: 'https://www.hamline.edu/',
+    id: 'work1',
+    description: 'Delivered six course sections across three disciplines — statistics, linear algebra, and calculus — within a single academic year, managing up to four concurrent sections per semester.',
+    achievements: [
+      'Incorporated hands-on data analysis labs using RStudio, giving students practical experience with a widely used statistical computing environment',
+      'Developed multi-modal instructional materials including structured lectures, practice worksheets, collaborative group activities, and digital labs to address varied learning styles',
+      'Rapidly developed proficiency in three courses new to my teaching portfolio',
+      'mplemented standards-based grading across all courses, aligning assessment practices with demonstrated mastery to better support student learning outcomes',
+    ],
+    technologies: ['R/RStudio', 'LaTex', 'Teaching & Curriculum Development']
+  },
+  {
     company: 'University of Wisconsin - River Falls',
     title: 'Lecturer – Physics & Engineering',
     start: '2024',
-    end: 'Present',
+    end: '2025',
     link: 'https://www.uwrf.edu/',
     id: 'work1',
     description: 'Designed and delivered hands-on engineering curriculum for undergraduate students, focusing on practical applications of physics and engineering principles. Successfully mentored student capstone projects from concept to prototype.',
@@ -103,13 +119,14 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     id: 'work2',
     description: 'Led cutting-edge research in soft robotics and medical device control systems, developing innovative solutions for human-robot collaboration in medical applications. Secured research funding through grant proposals and published peer-reviewed findings.',
     achievements: [
-      'Engineered adaptive control algorithms achieving 90%+ accuracy for soft robotic end effectors despite nonlinear material deformation',
-      'Published research in Journal of NeuroEngineering and Rehabilitation with 99.7% participant completion rate across 311 subjects',
-      'Coordinated recruitment with surgical societies, successfully enrolling thousands of participants for comparative studies',
+      'Developed visual servoing control systems using Python and OpenCV for soft robotic applications, achieving precise end-effector positioning for medical procedures',
+      'Published research in Journal of NeuroEngineering and Rehabilitation and presented findings at the 2020 Institute for Engineering in Medicine Conference',
+      'Analyzed stress concentrations in mechanical components to determine load capacities, informing design revisions',
+      'Created comprehensive database solutions in Python to analyze thousands of trial results, implementing automated data extraction and visualization capabilities',
       'Managed Linux server infrastructure on Google Cloud Platform for large-scale data collection and analysis',
       'Led interdisciplinary collaboration between engineers, statisticians, surgeons, and researchers'
     ],
-    technologies: ['Python', 'OpenCV', 'MATLAB', 'Linux', 'Google Cloud Platform', 'R', 'SolidWorks']
+    technologies: ['Python', 'OpenCV', 'MATLAB', 'Linux', 'Google Cloud Platform', 'R/RStduio', 'SolidWorks']
   },
   {
     company: 'Hu-Friedy Mfg Co, LLC',
