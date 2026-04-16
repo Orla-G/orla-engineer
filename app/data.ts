@@ -44,7 +44,7 @@ export const PROJECTS: Project[] = [
   */
   {
     name: 'Soft Robotic Medical Device Control System',
-    description: 'Developed adaptive algorithms for controlling soft robots in medical applications, achieving 90%+ positioning accuracy despite nonlinear material deformation.',
+    description: 'Online Jacobian estimation give a cable-driven soft robot model-free control with applications for minimally invasive surgery. I developed an adaptive algorithms for controlling a soft robots capable of navigating the tortous pathways of human anatomy that was implemented using both computer vision and an electromagnetic tracker. Read more about it on my write up linked to below!',
     link: '/blog/soft-robot',
     video: '',
     image: '/soft-robot.jpg',
@@ -52,7 +52,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: 'Handheld Delta Robot for Enhanced Motor Control',
-    description: 'Engineered a Python-based collaborative robot that provides subtle assistance during precision tasks using computer vision and real-time control.',
+    description: 'As part of a project on collaborative robotics I designed and tuned a Python-based control system that could provide task assistance by using computer vision and real-time control. The portion of the project I worked on focused on the Fitts\'s Law reciprocal tapping test to gathering initial data on how humans and robots interact on a task.',
     link: 'https://mrd.umn.edu/active-research-projects/shared-control',
     video: '',
     image: '/delta-robot.jpg',
@@ -60,7 +60,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: 'Grip Force Device Validation for Muscular Dystrophy Research',
-    description: 'Validated a video game-based assessment system for measuring muscle strength in children with muscular dystrophy, achieving 99.7% completion rate across 311 participants.',
+    description: 'While new therapies are continuously introduced to treat muscular dystrophy, current assessment tests are challenging to quantify, cannot be used in non-ambulatory patients, or can de-motivate pediatric patients. A bio-feedback grip sensor that motivates children to complete maximal and fatiguing grip protocols through a game-based interface was developed and data was collected from over 300 participants. My work on this project focused on compiling the data into a functional database (using Python), completing the statistical analysis (using RStudio), and taking lead on writing a paper which was then published in the Journal of NMeuroEngineering and Rehabilitation, linked to below.',
     link: 'https://jneuroengrehab.biomedcentral.com/articles/10.1186/s12984-021-00908-1',
     video: '',
     image: '/gameplay.png',
@@ -68,8 +68,8 @@ export const PROJECTS: Project[] = [
   },
   {
     name: 'Surgical Skill Evaluation Research Project',
-    description: 'Managed large-scale research evaluating surgical technical skills through crowdsourcing, coordinating thousands of participants and developing comprehensive databases.',
-    link: 'https://www.proquest.com/docview/3180533619/abstract/5F1BC982D644788PQ/1?accountid=14586&sourcetype=Dissertations%20&%20Theses',
+    description: 'I managed a large-scale research project evaluating surgical technical skills through crowdsourcing (Amazon MTurk), coordinating thousands of participants and developing comprehensive database. This work can be found on my publications page as my PhD thesis, linked to below.',
+    link: '/blog/publications',
     video: '',
     image: '/website.jpg',
     id: 'project4',
