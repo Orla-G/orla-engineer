@@ -45,7 +45,7 @@ export const PROJECTS: Project[] = [
   {
     name: 'Soft Robotic Medical Device Control System',
     description: 'Developed adaptive algorithms for controlling soft robots in medical applications, achieving 90%+ positioning accuracy despite nonlinear material deformation.',
-    link: '/nonparamjacobian.pdf',
+    link: '/blog/soft-robot',
     video: '',
     image: '/soft-robot.jpg',
     id: 'project1',

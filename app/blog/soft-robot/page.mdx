@@ -1,6 +1,73 @@
 export const metadata = {
-  title: 'Soft Robotic End Effector',
-  description: 'Developed adaptive algorithms for controlling soft robots in medical applications.',
+  title: 'Teaching a Soft Robot to Find Its Own Way',
+  description: 'How online Jacobian estimation — and a bit of creative engineering — gave a cable-driven soft arm model-free control, and what that means for the future of minimally invasive surgery.',
 }
 
-Work in Progress
+# Teaching a Soft Robot to Find Its Own Way
+
+*How online Jacobian estimation — and a bit of creative engineering — gave a cable-driven soft arm model-free control, and what that means for the future of minimally invasive surgery.*
+
+---
+
+This project started back in 2018 — [fill in remaining details here].
+
+The original implementation relied entirely on computer vision. A webcam tracked an ArUco marker (a square QR-code-like tag) attached to the robot's tip, and OpenCV translated that 2D pixel position into a feedback signal for the control loop. The approach worked — but it had an obvious ceiling. Cameras need line-of-sight, and line-of-sight is a luxury you don't have inside a patient.
+
+That limitation pushed the project toward its second chapter: electromagnetic tracking (EMT). By embedding a hair-thin 1.5 mm sensor inside the hollow core of the soft arm, the system could recover full 3D position without needing to see the robot at all — opening the door to environments where vision simply isn't an option.
+
+---
+
+## The Problem With Soft Robots
+
+Rigid robots are predictable. You can write down the math that describes exactly how a joint angle translates to tip position. Soft robots — the kind that can bend and squish their way through tortuous anatomy — don't play by those rules. Their behavior is nonlinear, environment-dependent, and far too complex for a tidy closed-form equation.
+
+> The core insight of this work: if you can't write the model, let the robot learn it in real time.
+
+The team's solution was online Jacobian estimation — a technique that continually updates a mathematical mapping between motor commands and tip movement, using only the data the robot generates as it moves. No pre-baked model. No simulation. Just incremental observations, a least-squares fit, and a pseudo-inverse to turn desired tip motion into motor commands.
+
+---
+
+## How It Works
+
+The robot itself is a 90 mm polyurethane cylinder — roughly the diameter of a large catheter — with three servo-driven cables anchored at equidistant points around its tip. Two hardware variants were built: one with cables running along the outside, and one with cables embedded inside the body for a cleaner, more catheter-like profile.
+
+At startup, each motor steps through a short pre-set sequence. The system watches how the tip moves in response, stacks those observations into matrices, and solves for an initial Jacobian using least squares. From that point on, the Jacobian is updated continuously as the robot moves — adapting to posture changes, soft-body nonlinearities, and anything else the environment throws at it.
+
+Across all four combinations of hardware and control method — internal/external cables × vision/EMT — the approach successfully drove the tip to commanded positions, with task-space error consistently converging toward zero.
+
+---
+
+## From Bench to Bedside
+
+This work isn't staying in the lab. The electromagnetic tracking implementation is already being used to control a catheter tip in active development — a direct translation of the research platform into a clinical tool context.
+
+Beyond that, this technology has been submitted as part of a multi-million dollar grant application to **ARPA-H** (the Advanced Research Projects Agency for Health), as a core enabling component of remote stroke surgery technology. The vision: a surgeon operating from across the country, with a soft robotic catheter navigating a patient's vasculature guided by this model-free control framework.
+
+The video below shows the system in action:
+
+<iframe
+  title="vimeo-player"
+  src="https://player.vimeo.com/video/1183850005?h=558300af32"
+  width="640"
+  height="360"
+  frameBorder="0"
+  referrerPolicy="strict-origin-when-cross-origin"
+  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+  allowFullScreen
+/>
+
+---
+
+## What Comes Next
+
+The current results were demonstrated in open, unconstrained environments — a deliberate starting point, but not the finish line. Future work will move the system into confined, tortuous channels that better approximate real anatomy, running the kind of large-scale repeated trials needed to fully characterize accuracy and convergence statistics.
+
+There's also room to improve the trajectory planner (the current step-toward-target approach produces some saw-toothing in pixel space) and to formalize the parameter selection process, which was tuned empirically rather than formally optimized.
+
+---
+
+You can read the full paper [here](/DMD_paper.pdf).
+
+**Paper Reference:** Gotthelf, O., Farhat Ullah, Y., Narkhede, R., & Kowalewski, T. M. (2026). *Estimating the Non-Parametric Jacobian of a Tendon-Driven Soft Robot End-Effector.* Proceedings of the 2026 Design of Medical Devices Conference (DMD2026), April 20–22, Minneapolis, MN. Paper no. DMD2026-1076.
+
+*Keywords: Soft Robotics · Jacobian Estimation · Model-free Control · Electromagnetic Tracking · Visual Servoing*
