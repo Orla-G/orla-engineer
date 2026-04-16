@@ -44,15 +44,15 @@ export const PROJECTS: Project[] = [
   */
   {
     name: 'Soft Robotic Medical Device Control System',
-    description: 'Developed adaptive algorithms for controlling soft robots in medical applications, achieving 90%+ positioning accuracy despite nonlinear material deformation.',
-    link: '/nonparamjacobian.pdf',
+    description: 'Online Jacobian estimation give a cable-driven soft robot model-free control with applications for minimally invasive surgery. I developed an adaptive algorithms for controlling a soft robots capable of navigating the tortous pathways of human anatomy that was implemented using both computer vision and an electromagnetic tracker. Read more about it on my write up linked to below!',
+    link: '/blog/soft-robot',
     video: '',
     image: '/soft-robot.jpg',
     id: 'project1',
   },
   {
     name: 'Handheld Delta Robot for Enhanced Motor Control',
-    description: 'Engineered a Python-based collaborative robot that provides subtle assistance during precision tasks using computer vision and real-time control.',
+    description: 'As part of a project on collaborative robotics I designed and tuned a Python-based control system that could provide task assistance by using computer vision and real-time control. The portion of the project I worked on focused on the Fitts\'s Law reciprocal tapping test to gathering initial data on how humans and robots interact on a task.',
     link: 'https://mrd.umn.edu/active-research-projects/shared-control',
     video: '',
     image: '/delta-robot.jpg',
@@ -60,7 +60,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: 'Grip Force Device Validation for Muscular Dystrophy Research',
-    description: 'Validated a video game-based assessment system for measuring muscle strength in children with muscular dystrophy, achieving 99.7% completion rate across 311 participants.',
+    description: 'While new therapies are continuously introduced to treat muscular dystrophy, current assessment tests are challenging to quantify, cannot be used in non-ambulatory patients, or can de-motivate pediatric patients. A bio-feedback grip sensor that motivates children to complete maximal and fatiguing grip protocols through a game-based interface was developed and data was collected from over 300 participants. My work on this project focused on compiling the data into a functional database (using Python), completing the statistical analysis (using RStudio), and taking lead on writing a paper which was then published in the Journal of NMeuroEngineering and Rehabilitation, linked to below.',
     link: 'https://jneuroengrehab.biomedcentral.com/articles/10.1186/s12984-021-00908-1',
     video: '',
     image: '/gameplay.png',
@@ -68,8 +68,8 @@ export const PROJECTS: Project[] = [
   },
   {
     name: 'Surgical Skill Evaluation Research Project',
-    description: 'Managed large-scale research evaluating surgical technical skills through crowdsourcing, coordinating thousands of participants and developing comprehensive databases.',
-    link: 'https://www.proquest.com/docview/3180533619/abstract/5F1BC982D644788PQ/1?accountid=14586&sourcetype=Dissertations%20&%20Theses',
+    description: 'I managed a large-scale research project evaluating surgical technical skills through crowdsourcing (Amazon MTurk), coordinating thousands of participants and developing comprehensive database. This work can be found on my publications page as my PhD thesis, linked to below.',
+    link: '/blog/publications',
     video: '',
     image: '/website.jpg',
     id: 'project4',
@@ -77,13 +77,29 @@ export const PROJECTS: Project[] = [
 ]
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
-{
+  {
+    company: 'Hamline University',
+    title: 'Lecturer – Applied Math',
+    start: '2025',
+    end: 'Present',
+    link: 'https://www.hamline.edu/',
+    id: 'hamline',
+    description: 'Delivered six course sections across three disciplines — statistics, linear algebra, and calculus — within a single academic year, managing up to four concurrent sections per semester.',
+    achievements: [
+      'Incorporated hands-on data analysis labs using RStudio, giving students practical experience with a widely used statistical computing environment',
+      'Developed multi-modal instructional materials including structured lectures, practice worksheets, collaborative group activities, and digital labs to address varied learning styles',
+      'Rapidly developed proficiency in three courses new to my teaching portfolio',
+      'mplemented standards-based grading across all courses, aligning assessment practices with demonstrated mastery to better support student learning outcomes',
+    ],
+    technologies: ['R/RStudio', 'LaTex', 'Teaching & Curriculum Development']
+  },
+  {
     company: 'University of Wisconsin - River Falls',
     title: 'Lecturer – Physics & Engineering',
     start: '2024',
-    end: 'Present',
+    end: '2025',
     link: 'https://www.uwrf.edu/',
-    id: 'work1',
+    id: 'uwrf',
     description: 'Designed and delivered hands-on engineering curriculum for undergraduate students, focusing on practical applications of physics and engineering principles. Successfully mentored student capstone projects from concept to prototype.',
     achievements: [
       'Enhanced student comprehension of instrumentation and data collection through LabVIEW programming coursework',
@@ -100,16 +116,17 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: '2019',
     end: '2024',
     link: 'https://mrd.umn.edu/',
-    id: 'work2',
+    id: 'umn',
     description: 'Led cutting-edge research in soft robotics and medical device control systems, developing innovative solutions for human-robot collaboration in medical applications. Secured research funding through grant proposals and published peer-reviewed findings.',
     achievements: [
-      'Engineered adaptive control algorithms achieving 90%+ accuracy for soft robotic end effectors despite nonlinear material deformation',
-      'Published research in Journal of NeuroEngineering and Rehabilitation with 99.7% participant completion rate across 311 subjects',
-      'Coordinated recruitment with surgical societies, successfully enrolling thousands of participants for comparative studies',
+      'Developed visual servoing control systems using Python and OpenCV for soft robotic applications, achieving precise end-effector positioning for medical procedures',
+      'Published research in Journal of NeuroEngineering and Rehabilitation and presented findings at the 2020 Institute for Engineering in Medicine Conference',
+      'Analyzed stress concentrations in mechanical components to determine load capacities, informing design revisions',
+      'Created comprehensive database solutions in Python to analyze thousands of trial results, implementing automated data extraction and visualization capabilities',
       'Managed Linux server infrastructure on Google Cloud Platform for large-scale data collection and analysis',
       'Led interdisciplinary collaboration between engineers, statisticians, surgeons, and researchers'
     ],
-    technologies: ['Python', 'OpenCV', 'MATLAB', 'Linux', 'Google Cloud Platform', 'R', 'SolidWorks']
+    technologies: ['Python', 'OpenCV', 'MATLAB', 'Linux', 'Google Cloud Platform', 'R/RStduio', 'SolidWorks']
   },
   {
     company: 'Hu-Friedy Mfg Co, LLC',
@@ -117,7 +134,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: '2015',
     end: '2018',
     link: 'https://www.hufriedygroup.com/en',
-    id: 'work3',
+    id: 'hufriedy',
     description: 'Engineered comprehensive testing protocols and design validation systems for medical devices, ensuring regulatory compliance and product reliability. Led design optimization initiatives and modernization efforts for legacy product lines.',
     achievements: [
       'Developed stress testing and life cycle validation protocols under extreme conditions for medical device reliability',
@@ -133,10 +150,10 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    title: 'Blog Post Template',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    link: '/blog/blog-post-template',
-    uid: 'blog-1',
+    title: 'Research and Publications',
+    description: 'Research Interests, on-going works, peer-reviewed publications, dissertations, and presentations.',
+    link: '/blog/publications',
+    uid: 'blog-publications',
   },
 ]
 

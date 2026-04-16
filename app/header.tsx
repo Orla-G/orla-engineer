@@ -53,6 +53,8 @@ export function Header() {
               <span>Mechatronics Specialist</span>
               <span>Python Coder</span>
               <span>Controls Systems Expert</span>
+              <span>Statistician</span>
+              <span>Collaborator</span>
             </TextLoop>
           </div>
         )}

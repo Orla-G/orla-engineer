@@ -1,0 +1,65 @@
+export const metadata = {
+  title: 'Teaching a Soft Robot to Find Its Own Way',
+  description: 'Online Jacobian estimation give a cable-driven soft robot model-free control, and applications for of minimally invasive surgery.',
+}
+
+# Teaching a Soft Robot to Find Its Own Way
+
+*Online Jacobian estimation give a cable-driven soft robot model-free control, and applications for of minimally invasive surgery.*
+
+---
+
+This project started back in 2018 as a class project during my first semester of graduate school for a medical robotics course. The majority of the semester was spent on control implementation for traditional hard robots which have well defined control parameters. For the courses research project my group wanted to explore controlling a robot with no known parameters. 
+
+This original implementation relied entirely on computer vision (shown on the left side below). A webcam tracked an ArUco marker (a square QR-code-like tag) attached to the robot's tip, and OpenCV translated that 2D pixel position into a feedback signal for the control loop. While the approach worked it had limited applications in medical robotics as cameras need line-of-sight and we did not have access to equipment like an X-ray C Arm to test the possibility of control through a different vision method.  
+
+There was always an intention to further develop the research in the future and during the winter of 2025/2026 the project matured by adding new control methods and finding a home in a larger minimally invasive surgery project. By adding an electromagnetic tracker (EMT), a hair-thin 1.5 mm sensor inside the hollow core of the soft robot, the system could track full 3D position without needing to see the robot at all (shown on the left side below). 
+
+![Robot Control](/robot_control.png)
+
+---
+
+## The Problem With Soft Robots
+
+Rigid robots are predictable. You can write down the math that describes exactly how a joint angle translates to tip position. Soft robots, the kind that can bend and squish their way through the tortuous anatomy of the human body, have a constantly changing mathematical relationship between input and output. Their behavior is nonlinear, environment-dependent, and far too complex for a tidy closed-form equation.
+
+If we couldn't write the model down, maybe the robot could learn the model in real time.
+
+Our groups's solution was online Jacobian estimation, a technique that continually updates a mathematical mapping between motor commands and tip movement, using only the data the robot generates as it moves. No pre-baked model. No simulation. Just incremental observations, a least-squares fit, and a pseudo-inverse to turn desired tip motion into motor commands.
+
+---
+
+## How It Works
+
+To gather data we used a small robot that is a polyurethane cylinder roughly mimicing what the end of a catheter could potentially be like, due to this we called it an "end-effector". The end-effector was anchored with three servo-driven cables at equidistant points around its tip. Two hardware variants were built: one with cables running along the outside, and one with cables embedded inside the body for a cleaner, more catheter-like profile.
+
+At startup, each motor steps through a short pre-set sequence. The system watches how the tip moves in response, stacks those observations into matrices, and solves for an initial Jacobian using least squares. From that point on, the Jacobian is updated continuously as the robot moves, adapting to posture changes, soft-body nonlinearities, and anything else the environment throws at it.
+
+Across all four combinations of hardware and control method, internal/external cables × vision/EMT, the approach successfully drove the tip to commanded positions, with task-space error consistently converging toward zero. An example plot of the robot with external tendons with the EMT control is shown below showing how the robot is able to reach target points. 
+
+![EMTS Path](/EMTS_path.png)
+
+The results of this work has been published in the Proceedings of the 2026 Design of Medical Devices Conference.
+
+---
+
+## From Bench to Bedside
+
+Shortly after the paper was accepted for publication a fellow researcher on the project was able to implment the electromagnetic tracking to control an actual catheter tip. This implementation was submitted as part of a multi-million dollar grant application to **ARPA-H** (the Advanced Research Projects Agency for Health), as a component of devloping remote stroke surgery technology that would help people in rural community receive care from the experts at comprehensive stroke centers.
+
+The video below shows the system in action:
+
+<iframe
+  title="vimeo-player"
+  src="https://player.vimeo.com/video/1183850005?h=558300af32"
+  width="640"
+  height="360"
+  frameBorder="0"
+  referrerPolicy="strict-origin-when-cross-origin"
+  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+  allowFullScreen
+/>
+
+---
+
+You can read the full paper [here](/DMD_paper.pdf).

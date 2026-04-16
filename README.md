@@ -29,6 +29,8 @@ The site is deployed using Vercel which supports Next.js:
 
 Feel free to reach out to me at [orla.gotthelf@gmail.com](mailto:orla.gotthelf@gmail.com) or connect with me on [LinkedIn](https://www.linkedin.com/in/ogotthelf).
 
+---
+
 # Repository Structure
 
 ```
@@ -77,6 +79,8 @@ Feel free to reach out to me at [orla.gotthelf@gmail.com](mailto:orla.gotthelf@g
 └── tsconfig.json                    # TypeScript configuration
 ```
 
+---
+
 ## Key Files Explained
 
 ### Configuration Files
@@ -105,3 +109,89 @@ Feel free to reach out to me at [orla.gotthelf@gmail.com](mailto:orla.gotthelf@g
 
 ### Custom Hooks
 - **hooks/useClickOutside.tsx**: Custom hook for detecting clicks outside an element (used for dialogs)
+
+---
+
+# Running the Dev Server Locally
+ 
+## Prerequisites — Installing Node.js
+ 
+`npm` (the package manager used here) comes bundled with Node.js automatically.
+ 
+The recommended way to install Node on Linux is via **nvm** (Node Version Manager). It installs entirely in your home folder so it never needs `sudo`.
+ 
+**1. Install nvm:**
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+```
+ 
+**2. Restart your terminal**, then verify nvm is available:
+```bash
+nvm --version
+```
+ 
+**3. Install the LTS version of Node (comes with npm):**
+```bash
+nvm install --lts
+```
+ 
+**4. Verify both installed correctly:**
+```bash
+node -v
+npm -v
+```
+ 
+> If you ever need to update Node later, just run `nvm install --lts` again.
+ 
+---
+ 
+## First-Time Setup
+ 
+Only needed once after first pulling the repo:
+ 
+```bash
+# Move into the project folder (adjust path as needed)
+cd path/to/your/project
+ 
+# Install all dependencies
+npm install
+```
+ 
+> This downloads everything the project needs into a `node_modules/` folder — it can take a minute.
+> You never need to commit that folder, it's already in `.gitignore`.
+ 
+---
+ 
+## Starting the Dev Server
+ 
+```bash
+npm run dev
+```
+ 
+Then open your browser to: **http://localhost:3000**
+ 
+The dev server has **hot reload** — edits to files show up in the browser automatically without restarting.
+ 
+To stop the server, press `Ctrl + C` in the terminal.
+ 
+---
+ 
+## After Pulling Updates in GitHub Desktop
+ 
+If you pull new changes and something breaks or looks wrong, re-run:
+ 
+```bash
+npm install   # picks up any new/changed packages
+npm run dev
+```
+ 
+---
+ 
+## Other Useful Commands
+ 
+| Command | What it does |
+|---|---|
+| `npm run dev` | Start local dev server at localhost:3000 |
+| `npm run build` | Build the site for production |
+| `npm run start` | Run the production build locally |
+| `npm run lint` | Check for code style issues |
