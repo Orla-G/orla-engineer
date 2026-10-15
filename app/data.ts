@@ -91,7 +91,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       'Served as lead author on a peer-reviewed publication and a conference presentation, with two additional manuscripts currently in submission',
       'Managed manuscript submission processes, ensuring papers met tight publication deadlines',
     ],
-    technologies: ['R/RStudio', 'LaTex', 'Teaching & Curriculum Development']
+    technologies: ['Project Management', 'Data Analysis', 'Technical Writing']
   },
   {
     company: 'Hamline University',

@@ -270,7 +270,7 @@ function WorkExperienceSection() {
                   
                   {job.technologies && job.technologies.length > 0 && (
                     <div className="mb-2">
-                      <h5 className="mb-1 font-medium text-zinc-950 dark:text-zinc-50">Technologies:</h5>
+                      <h5 className="mb-1 font-medium text-zinc-950 dark:text-zinc-50">Key Skills:</h5>
                       <div className="flex flex-wrap gap-2">
                         {job.technologies.map((tech, index) => (
                           <span 
