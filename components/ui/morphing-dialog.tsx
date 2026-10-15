@@ -198,6 +198,12 @@ function MorphingDialogContent({
     }
   }, [isOpen, triggerRef])
 
+    useEffect(() => {
+    return () => {
+      document.body.classList.remove('overflow-hidden')
+    }
+  }, [])
+
   useClickOutside(containerRef, () => {
     if (isOpen) {
       setIsOpen(false)

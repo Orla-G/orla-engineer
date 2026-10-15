@@ -78,10 +78,26 @@ export const PROJECTS: Project[] = [
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
+    company: 'Research Consultant',
+    title: 'Independent',
+    start: '2025',
+    end: 'Present',
+    link: 'https://www.hamline.edu/',
+    id: 'consulatant',
+    description: 'Moved forward the submission of three seperate research projects to peer reviewed journals.',
+    achievements: [
+      'Gathered requirements from surgeon collaborators to identify the most clinically relevant outcomes, and translated clinical results into engineering principles for publication',
+      'Collaborated across three universities with a principal investigator, graduate students, and surgeon collaborators to advance research projects',
+      'Served as lead author on a peer-reviewed publication and a conference presentation, with two additional manuscripts currently in submission',
+      'Managed manuscript submission processes, ensuring papers met tight publication deadlines',
+    ],
+    technologies: ['R/RStudio', 'LaTex', 'Teaching & Curriculum Development']
+  },
+  {
     company: 'Hamline University',
     title: 'Lecturer – Applied Math',
     start: '2025',
-    end: 'Present',
+    end: '2026',
     link: 'https://www.hamline.edu/',
     id: 'hamline',
     description: 'Delivered six course sections across three disciplines — statistics, linear algebra, and calculus — within a single academic year, managing up to four concurrent sections per semester.',
@@ -154,6 +170,12 @@ export const BLOG_POSTS: BlogPost[] = [
     description: 'Research Interests, on-going works, peer-reviewed publications, dissertations, and presentations.',
     link: '/blog/publications',
     uid: 'blog-publications',
+  },
+  {
+    title: 'Personal Projects',
+    description: 'Hobby projects completed at home using my personal prototyping workshop.',
+    link: '/blog/personal-projects',
+    uid: 'blog-personal-projects',
   },
 ]
 
