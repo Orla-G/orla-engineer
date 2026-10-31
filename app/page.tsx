@@ -4,7 +4,6 @@ import {
   XIcon,
   ChevronUp, 
 } from 'lucide-react'
-import { Spotlight } from '@/components/ui/spotlight'
 import { Magnetic } from '@/components/ui/magnetic'
 import {
   MorphingDialog,
@@ -53,11 +52,10 @@ type WorkExperience = {
   title: string
   start: string
   end: string
-  link: string
   id: string
-  // Add these properties to match your data
+  link?: string
   description?: string
-  achievements?: string[]
+  highlights?: { category: string; items: string[] }[]
   technologies?: string[]
 }
 
@@ -223,7 +221,7 @@ function WorkExperienceSection() {
       transition={{ duration: 0.3 }}
     >
       <h3 className="mb-5 text-2xl font-medium text-zinc-950 dark:text-zinc-50">Selected Work Experience</h3>
-      <Accordion 
+      <Accordion
         className="flex flex-col divide-y divide-zinc-200 dark:divide-zinc-700 space-y-2"
         transition={{ duration: 0.2, ease: 'easeInOut' }}
       >
@@ -232,10 +230,6 @@ function WorkExperienceSection() {
             key={job.id}
             className="relative overflow-hidden rounded-xl bg-zinc-300/30 dark:bg-zinc-600/30"
           >
-            <Spotlight
-              className="hidden md:block from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
-              size={64}
-            />
             <AccordionItem value={job.id} className="rounded-xl bg-white dark:bg-zinc-950">
               <AccordionTrigger className="relative flex w-full justify-between px-4 py-2 group">
                 <div className="flex-1">
@@ -253,28 +247,30 @@ function WorkExperienceSection() {
                   <ChevronUp className="h-4 w-4 text-zinc-950 transition-transform duration-200 group-data-[expanded]:-rotate-180 dark:text-zinc-50" />
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="px-4 pb-2">
+              <AccordionContent className="px-4 pb-4">
                 <div className="text-zinc-600 dark:text-zinc-400">
-                  <p className="mb-2">{job.description || 'Worked on various projects and responsibilities related to my role.'}</p>
-                  
-                  {job.achievements && job.achievements.length > 0 && (
-                    <div className="mb-2">
-                      <h5 className="mb-1 font-medium text-zinc-950 dark:text-zinc-50">Key Achievements:</h5>
-                      <ul className="list-inside list-disc space-y-1">
-                        {job.achievements.map((achievement, index) => (
-                          <li key={index}>{achievement}</li>
+                  {job.description && <p className="mb-3">{job.description}</p>}
+
+                  {job.highlights?.map((group) => (
+                    <div key={group.category} className="mb-3">
+                      <h5 className="mb-1 font-medium text-zinc-950 dark:text-zinc-50">
+                        {group.category}
+                      </h5>
+                      <ul className="list-outside list-disc space-y-1 pl-5">
+                        {group.items.map((item, index) => (
+                          <li key={index}>{item}</li>
                         ))}
                       </ul>
                     </div>
-                  )}
-                  
+                  ))}
+
                   {job.technologies && job.technologies.length > 0 && (
-                    <div className="mb-2">
-                      <h5 className="mb-1 font-medium text-zinc-950 dark:text-zinc-50">Key Skills:</h5>
+                    <div className="mt-2">
+                      <h5 className="mb-1 font-medium text-zinc-950 dark:text-zinc-50">Key Skills</h5>
                       <div className="flex flex-wrap gap-2">
                         {job.technologies.map((tech, index) => (
-                          <span 
-                            key={index} 
+                          <span
+                            key={index}
                             className="rounded-md bg-zinc-100 px-2 py-1 text-xs dark:bg-zinc-800"
                           >
                             {tech}
@@ -283,32 +279,6 @@ function WorkExperienceSection() {
                       </div>
                     </div>
                   )}
-                  
-                  <div className="mt-3">
-                    <a
-                      href={job.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-sm text-zinc-950 hover:underline dark:text-zinc-50"
-                    >
-                      Visit Website
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="ml-1 h-3 w-3"
-                      >
-                        <path
-                          d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
-                          fill="currentColor"
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                        ></path>
-                      </svg>
-                    </a>
-                  </div>
                 </div>
               </AccordionContent>
             </AccordionItem>
@@ -316,7 +286,7 @@ function WorkExperienceSection() {
         ))}
       </Accordion>
     </motion.section>
-  );
+  )
 }
 
 // Updated Blog Posts Section with simpler card design
@@ -336,10 +306,6 @@ function BlogPostsSection() {
             key={post.uid}
             className="group relative overflow-hidden rounded-xl border border-zinc-950/10 bg-white p-4 transition-all hover:border-zinc-950/20 dark:border-zinc-50/10 dark:bg-zinc-950 dark:hover:border-zinc-50/20"
           >
-          <Spotlight
-              className="hidden md:block from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
-              size={64}
-            />
 
             <div className="flex items-start justify-between">
               <div className="flex-1">
@@ -440,13 +406,13 @@ export default function Personal() {
       <div className="flex-1">            
         <div className="rounded-md border-1 border-[#E1B5B5] bg-white dark:border-[#D4A5A5] dark:bg-zinc-950 p-2">
           <div className='text-zinc-600 dark:text-zinc-400'>
-            I'm an engineer, educator, and researcher who loves building things, breaking things, and fixing things. 
+            I'm a mechanical engineer who loves building things, breaking them on purpose, and using the data to make them better. 
           </div>
         </div>
       </div>
       <div className="flex-1">
         <div className="mt-4 text-zinc-600 dark:text-zinc-400">
-          With a Ph.D. in Mechanical Engineering and a background that bridges robotics, control systems, mechatronics, and medical devices, I've led R&D projects from early-stage concepts to testable, real-world prototypes. My journey has spanned industry and academia: I've developed soft and hard robotic systems for medical applications, taught university-level courses in statistics, dynamics and machine design, and collaborated on interdisciplinary teams across engineering, healthcare, and data science.
+           I hold a Ph.D. in Mechanical Engineering and have spent ten years bringing electro-mechanical systems from concept to working hardware, from custom PCBs and microcontroller firmware to robot control systems, test fixtures, and medical devices. I back my designs with numbers: designing experiments, running life tests, analyzing data from studies with hundreds to thousands of participants, and turning results into clear engineering decisions. Along the way I've managed a research lab, published as a lead author, contributed to a funded NIH grant, and taught engineering and statistics at the university level, so I'm comfortable explaining technical work to engineers, clinicians, and students alike.
         </div>
       </div>
 
@@ -454,9 +420,9 @@ export default function Personal() {
       
       </motion.section>
 
-      <ProjectsSection />
-
       <WorkExperienceSection />
+
+      <ProjectsSection />     
 
       <BlogPostsSection />
       
@@ -469,7 +435,7 @@ export default function Personal() {
       >
         <h3 className="mb-5 text-2xl font-medium text-zinc-950 dark:text-zinc-50">Connect</h3>
         <p className="mb-5 text-zinc-600 dark:text-zinc-400">
-          Feel free to contact me at{' '}
+            I'm currently open to engineering roles in electro-mechanical design, controls, and test. Reach me at{' '}
           <a className="underline text-zinc-950 dark:text-zinc-50" href={`mailto:${EMAIL}`}>
             {EMAIL}
           </a>

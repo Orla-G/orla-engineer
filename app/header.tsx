@@ -44,17 +44,17 @@ export function Header() {
         {!isBlogPage && (
           <div className="min-w-0">
             <TextLoop 
-              className="text-3xl font-medium text-black dark:text-white block min-h-[2.25rem]"
-              interval={4}  // Increase from default 2 to 4 seconds
-              transition={{ duration: 0.8 }}  // Increase from 0.3 to 0.8 seconds
+              className="text-2xl italic font-medium text-black dark:text-white block min-h-[2.25rem]"
+              interval={3}  // Increase from default 2 to 4 seconds
+              transition={{ duration: 0.8}}  // Increase from 0.3 to 0.8 seconds
               >
               <span>Mechanical Engineer</span>
-              <span>Roboticist</span>
-              <span>Mechatronics Specialist</span>
-              <span>Python Coder</span>
-              <span>Controls Systems Expert</span>
-              <span>Statistician</span>
-              <span>Collaborator</span>
+              <span>Data-Driven Problem Solver</span>
+              <span>Mechatronics Engineer</span>
+              <span>Controls Engineer</span>
+              <span>Test & Validation Engineer</span>
+              <span>Medical Device Developer</span>
+              <span>Educator & Collaborator</span>
             </TextLoop>
           </div>
         )}

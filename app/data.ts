@@ -12,10 +12,10 @@ type WorkExperience = {
   title: string
   start: string
   end: string
-  link: string
   id: string
+  link?: string
   description?: string
-  achievements?: string[]
+  highlights?: { category: string; items: string[] }[]
   technologies?: string[]
 }
 
@@ -78,91 +78,143 @@ export const PROJECTS: Project[] = [
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
-    company: 'Research Consultant',
-    title: 'Independent',
+    company: 'Medical Robotics and Devices Lab, University of Minnesota',
+    title: 'Research Consultant (Independent)',
     start: '2025',
     end: 'Present',
-    link: 'https://www.hamline.edu/',
-    id: 'consulatant',
-    description: 'Moved forward the submission of three seperate research projects to peer reviewed journals.',
-    achievements: [
-      'Gathered requirements from surgeon collaborators to identify the most clinically relevant outcomes, and translated clinical results into engineering principles for publication',
-      'Collaborated across three universities with a principal investigator, graduate students, and surgeon collaborators to advance research projects',
-      'Served as lead author on a peer-reviewed publication and a conference presentation, with two additional manuscripts currently in submission',
-      'Managed manuscript submission processes, ensuring papers met tight publication deadlines',
+    id: 'consultant',
+    description:
+      'Continuing soft robotics and clinical research with the Medical Robotics and Devices Lab, carrying projects from hardware validation through peer-reviewed publication.',
+    highlights: [
+      {
+        category: 'Electro-Mechanical Engineering',
+        items: [
+          'Extended a soft robot control scheme from computer vision feedback to electromagnetic tracker-based servoing, enabling control in environments where image capture is not possible',
+          'Validated the controller across multiple cable-driven soft robots with both external and embedded actuation, documenting consistent positioning accuracy',
+        ],
+      },
+      {
+        category: 'Quantitative Analysis',
+        items: [
+          'Programmed an adaptive algorithm that estimates and updates the Jacobian with least squares in real time, reaching targets with over 90% accuracy despite nonlinear soft material deformation',
+          'Processed and statistically analyzed several years of clinical study data in R, using outcome measures defined with surgeon collaborators',
+        ],
+      },
+      {
+        category: 'Leadership & Communication',
+        items: [
+          'Lead author on a peer-reviewed publication and a 2026 Design of Medical Devices Conference paper and presentation, with two additional manuscripts in submission',
+          'Collaborated across three universities with a principal investigator, graduate students, and surgeons, and mentored a graduate student in research methods',
+        ],
+      },
     ],
-    technologies: ['Project Management', 'Data Analysis', 'Technical Writing']
+    technologies: ['Python', 'OpenCV', 'Adaptive Control', 'Electromagnetic Tracking', 'R', 'Technical Writing'],
   },
   {
-    company: 'Hamline University',
-    title: 'Lecturer – Applied Math',
-    start: '2025',
-    end: '2026',
-    link: 'https://www.hamline.edu/',
-    id: 'hamline',
-    description: 'Delivered six course sections across three disciplines — statistics, linear algebra, and calculus — within a single academic year, managing up to four concurrent sections per semester.',
-    achievements: [
-      'Incorporated hands-on data analysis labs using RStudio, giving students practical experience with a widely used statistical computing environment',
-      'Developed multi-modal instructional materials including structured lectures, practice worksheets, collaborative group activities, and digital labs to address varied learning styles',
-      'Rapidly developed proficiency in three courses new to my teaching portfolio',
-      'mplemented standards-based grading across all courses, aligning assessment practices with demonstrated mastery to better support student learning outcomes',
-    ],
-    technologies: ['R/RStudio', 'LaTex', 'Teaching & Curriculum Development']
-  },
-  {
-    company: 'University of Wisconsin - River Falls',
-    title: 'Lecturer – Physics & Engineering',
+    company: 'Hamline University · University of Wisconsin–River Falls',
+    title: 'Lecturer – Engineering, Physics & Applied Math',
     start: '2024',
-    end: '2025',
-    link: 'https://www.uwrf.edu/',
-    id: 'uwrf',
-    description: 'Designed and delivered hands-on engineering curriculum for undergraduate students, focusing on practical applications of physics and engineering principles. Successfully mentored student capstone projects from concept to prototype.',
-    achievements: [
-      'Enhanced student comprehension of instrumentation and data collection through LabVIEW programming coursework',
-      'Led dynamics courses in systems analysis, resulting in improved practical engineering application understanding',
-      'Developed comprehensive machine design curriculum covering extrusion, mechanical systems, and manufacturability',
-      'Mentored student capstone projects including a solar-powered electrical system that achieved full functionality',
-      'Adapted course content based on continuous feedback, achieving measurable improvements in student engagement'
+    end: '2026',
+    id: 'lecturer',
+    description:
+      'Taught engineering and mathematics courses at two universities, rapidly developing proficiency in course material.',
+    highlights: [
+      {
+        category: 'Electro-Mechanical Engineering',
+        items: [
+          'Taught machine design (fatigue, tolerancing, material selection, gears, design for manufacturability) and rigid-body dynamics',
+          'Created LabVIEW programs interfacing NI DAQ hardware with strain gauges, and trained students on an MTS load frame and hardness tester',
+          'Advised a solar-powered electrical system capstone team through design decisions and troubleshooting to a working prototype',
+        ],
+      },
+      {
+        category: 'Quantitative Analysis',
+        items: [
+          'Taught applied statistics including hypothesis testing, ANOVA, linear regression, chi-square testing, and power calculations',
+          'Designed hands-on RStudio data analysis labs and added ethical experimental design to the required statistics curriculum',
+        ],
+      },
+      {
+        category: 'Leadership & Communication',
+        items: [
+          'Managed up to four concurrent course sections per semester, rapidly coming up to speed on every course new to my portfolio',
+          'Gathered student feedback through surveys and check-ins, adjusting activities mid-semester and collaborating with faculty to refine materials',
+        ],
+      },
     ],
-    technologies: ['LabVIEW', 'MATLAB', 'CAD', 'SolidWorks', 'Teaching & Curriculum Development']
+    technologies: ['LabVIEW', 'NI DAQ', 'MTS Load Frame', 'R/RStudio', 'Machine Design', 'Curriculum Development'],
   },
   {
-    company: 'University of Minnesota - Twin Cities',
-    title: 'Research Assistant – Robotics & Data-Driven Medical Technology',
+    company: 'University of Minnesota – Twin Cities',
+    title: 'Research Assistant – Medical Technology',
     start: '2019',
     end: '2024',
-    link: 'https://mrd.umn.edu/',
     id: 'umn',
-    description: 'Led cutting-edge research in soft robotics and medical device control systems, developing innovative solutions for human-robot collaboration in medical applications. Secured research funding through grant proposals and published peer-reviewed findings.',
-    achievements: [
-      'Developed visual servoing control systems using Python and OpenCV for soft robotic applications, achieving precise end-effector positioning for medical procedures',
-      'Published research in Journal of NeuroEngineering and Rehabilitation and presented findings at the 2020 Institute for Engineering in Medicine Conference',
-      'Analyzed stress concentrations in mechanical components to determine load capacities, informing design revisions',
-      'Created comprehensive database solutions in Python to analyze thousands of trial results, implementing automated data extraction and visualization capabilities',
-      'Managed Linux server infrastructure on Google Cloud Platform for large-scale data collection and analysis',
-      'Led interdisciplinary collaboration between engineers, statisticians, surgeons, and researchers'
+    description:
+      'Designed, built, and validated medical devices and robotic systems, and led the statistical analysis behind my MS thesis, PhD dissertation, and a peer-reviewed publication.',
+    highlights: [
+      {
+        category: 'Electro-Mechanical Engineering',
+        items: [
+          'Built a remote IV pump alarm notifier during the early COVID-19 pandemic: a Teensy microcontroller filtered microphone audio to detect alarms and radioed an outside unit, on a custom PCB, with five verified sets delivered to the clinical partner',
+          'Developed a Python and OpenCV control system for a handheld delta robot, including a custom PID autotuner, packaged as a reusable class teammates integrated into their code',
+          'Characterized force distribution in a grip force dynamometer using MTS load frame testing and FEA, and calibrated devices by regression across repeated trials',
+        ],
+      },
+      {
+        category: 'Quantitative Analysis',
+        items: [
+          'Validated a game-based grip force system with 311 participants (99.7% completion), using ANOVA, t-tests, and regression in R to show agreement with normative values in 14 of 20 age groups',
+          'Led the statistical analysis validating crowdsourced surgical skill assessment across thousands of participants, forming the basis of my MS thesis and PhD dissertation',
+          'Built Python databases and managed a Linux server on Google Cloud Platform to collect and analyze thousands of participant responses',
+        ],
+      },
+      {
+        category: 'Leadership & Communication',
+        items: [
+          'Collected the preliminary data for about one third of a funded NIH grant proposal and drafted its methods, results, and discussion',
+          'Served as lab manager for about two years and led collaboration among engineers, statisticians, surgeons, and researchers',
+          'Lead author in the Journal of NeuroEngineering and Rehabilitation (2021) and presenter at the 2020 Institute for Engineering in Medicine Conference',
+        ],
+      },
     ],
-    technologies: ['Python', 'OpenCV', 'MATLAB', 'Linux', 'Google Cloud Platform', 'R/RStduio', 'SolidWorks']
+    technologies: ['Python', 'OpenCV', 'PID Control', 'Teensy', 'PCB Design', 'SolidWorks', 'FEA', 'R/RStudio', 'Linux', 'Google Cloud Platform'],
   },
   {
     company: 'Hu-Friedy Mfg Co, LLC',
-    title: 'R&D, Manufacturing and QA Co-Op | Medical Device Engineering',
+    title: 'R&D, Manufacturing and QA Co-Op – Medical Device Engineering',
     start: '2015',
     end: '2018',
-    link: 'https://www.hufriedygroup.com/en',
     id: 'hufriedy',
-    description: 'Engineered comprehensive testing protocols and design validation systems for medical devices, ensuring regulatory compliance and product reliability. Led design optimization initiatives and modernization efforts for legacy product lines.',
-    achievements: [
-      'Developed stress testing and life cycle validation protocols under extreme conditions for medical device reliability',
-      'Executed Design of Experiments (DoE) for product families, identifying common failure mechanisms to improve longevity',
-      'Designed and fabricated mechanical/electrical test fixtures using Arduino and SolidWorks, improving testing efficiency',
-      'Performed 3D scanning of legacy products, utilizing surface modeling to generate accurate 3D models for modernization',
-      'Restructured test reporting systems to meet regulatory standards, enhancing cross-team communication and QA practices'
+    description:
+      'Three co-op terms across R&D, manufacturing, and quality assurance for dental hand instruments and ultrasonic scalers.',
+    highlights: [
+      {
+        category: 'Electro-Mechanical Engineering',
+        items: [
+          'Created production drawings with GD&T and tolerance stack-up analysis, and modeled injection-molded prototype parts in SolidWorks',
+          'Designed and fabricated mechanical and electrical test fixtures using Arduino and SolidWorks, improving testing consistency and efficiency',
+        ],
+      },
+      {
+        category: 'Quantitative Analysis',
+        items: [
+          'Ran a Design of Experiments on o-ring dimensions, profile, and coating to identify drivers of ultrasonic scaler failure',
+          'Ran accelerated life tests simulating years of use in under one week, and compared ANSYS FEA predictions against physical test data',
+          'Created a repeatable, quantitative test method for a performance issue that had no existing measure, using an Arduino-controlled fixture',
+        ],
+      },
+      {
+        category: 'Leadership & Communication',
+        items: [
+          'Presented test findings in design reviews with cross-functional teams and worked directly with manufacturing floor staff',
+          'Consolidated four separate test reporting documents into one guided Excel workbook, and participated in CAPAs and a Kaizen event',
+        ],
+      },
     ],
-    technologies: ['SolidWorks', 'Arduino', 'ANSYS', '3D Scanning', 'Statistical Analysis', 'DoE']
+    technologies: ['SolidWorks', 'GD&T', 'ANSYS', 'Arduino', 'DoE', 'Accelerated Life Testing', 'MTS Load Frame'],
   },
 ]
-
 
 export const BLOG_POSTS: BlogPost[] = [
   {
