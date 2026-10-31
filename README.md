@@ -1,6 +1,6 @@
 # Personal Website
 
-<img src="/public/cover.jpg" alt="Cover image of my personal website" width="100%" />
+<img src="/public/cover1.jpg" alt="Cover image of my personal website" width="100%" />
 
 This is my personal website built using Next.js 15, React 19, Tailwind CSS v4, and Motion. As a mechanical engineer specializing in robotics and mechatronics, I've designed this site to showcase my projects, experience, and interests in a clean, minimalist manner.
 
